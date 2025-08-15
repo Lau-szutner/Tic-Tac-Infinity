@@ -113,7 +113,7 @@ function App() {
 
   return (
     <main className="grid place-items-center h-full text-2xl text-white">
-      <div className="w-6/12 bg-cyan-500 p-10">
+      <div className="w-6/12 bg-cyan-500 p-10 flex flex-col gap-20">
         <ol className="flex justify-around gap-20">
           <Player
             initialName={PLAYERS.X}
@@ -137,7 +137,7 @@ function App() {
           {gameType ? 'infinito' : 'clasico'}
         </button>
       </div>
-      <Log turns={gameTurns} />
+      {/* <Log turns={gameTurns} /> */}
     </main>
   );
 }
