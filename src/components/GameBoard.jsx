@@ -7,12 +7,7 @@ export default function GameBoard({ onSelectSquare, board }) {
             {row.map((playerSymbol, colIndex) => (
               <li key={colIndex}>
                 <button
-                  className={`w-28 h-28 bg-white rounded-xl shadow-md flex items-center justify-center text-5xl font-bold transition 
-                    ${
-                      playerSymbol === null
-                        ? 'hover:bg-blue-100 hover:scale-105 active:bg-blue-200'
-                        : 'text-gray-400 cursor-not-allowed'
-                    }`}
+                  className="w-36 h-36 bg-[#c77dff] rounded-xl shadow-md flex items-center justify-center text-6xl font-bold hover:bg-[#e0aaff] hover:scale-105 transition text-[#5a189a]"
                   onClick={() => onSelectSquare(rowIndex, colIndex)}
                   disabled={playerSymbol !== null}
                 >

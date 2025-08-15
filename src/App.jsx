@@ -113,8 +113,8 @@ function App() {
 
   return (
     <main className="grid place-items-center h-full text-2xl text-white">
-      <div className="w-6/12 bg-cyan-500 p-10 flex flex-col gap-20">
-        <ol className="flex justify-around gap-20">
+      <div className="w-8/12 bg-[#5a189a] p-10 flex flex-col gap-20">
+        <ol className="grid lg:grid-cols-2 gap-20">
           <Player
             initialName={PLAYERS.X}
             symbol="X"
@@ -133,8 +133,11 @@ function App() {
         )}
         <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
 
-        <button id="game-type" onClick={() => setGameType((prev) => !prev)}>
-          {gameType ? 'infinito' : 'clasico'}
+        <button
+          className="bg-[#3c096c] w-fit px-7 py-3 rounded-md hover:scale-120 transition place-self-center"
+          onClick={() => setGameType((prev) => !prev)}
+        >
+          {gameType ? 'infinito' : 'Clasico'}
         </button>
       </div>
       {/* <Log turns={gameTurns} /> */}
