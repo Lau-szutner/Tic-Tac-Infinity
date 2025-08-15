@@ -112,9 +112,9 @@ function App() {
   }
 
   return (
-    <main className="bg-zinc-900 min-w-8/12">
-      <div className="w-full">
-        <ol id="players" className="flex w-full">
+    <main className="grid place-items-center h-full text-2xl text-white">
+      <div className="w-6/12 bg-cyan-500 p-10">
+        <ol className="flex justify-around gap-20">
           <Player
             initialName={PLAYERS.X}
             symbol="X"

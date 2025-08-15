@@ -14,7 +14,6 @@ export default function Player({
 
     if (isEditing) {
       onChangeName(symbol, playerName);
-      console.log(playerName);
     }
   }
 
@@ -22,21 +21,36 @@ export default function Player({
     setPlayerName(e.target.value);
   }
 
-  let editablePlayerName = <span className="player-name">{playerName}</span>;
+  let editablePlayerName = <span className="w-36">{playerName}</span>;
 
   if (isEditing) {
     editablePlayerName = (
-      <input type="text" required value={playerName} onChange={handleChange} />
+      <input
+        type="text"
+        required
+        value={playerName}
+        onChange={handleChange}
+        className="w-full bg-zinc-600 text-center"
+      />
     );
   }
 
   return (
-    <li className="h-20 bg-amber-200 flex">
-      <span className="player">
+    <li
+      className={`w-full py-6 rounded-md flex justify-around   transition-all duration-300 ${
+        isActive ? 'border-2 border-zinc-800' : undefined
+      }`}
+    >
+      <span className="font-bold w-28 flex text-center">
         {editablePlayerName}
-        <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={handleEditClick}>{isEditing ? 'Save' : 'Save'}</button>
+      <span className="font-bold">{symbol}</span>
+      <button
+        className="font-light pointer-cursor px-4"
+        onClick={handleEditClick}
+      >
+        {isEditing ? 'Save' : 'Edit'}
+      </button>
     </li>
   );
 }
