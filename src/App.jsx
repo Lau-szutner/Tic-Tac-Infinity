@@ -112,9 +112,9 @@ function App() {
   }
 
   return (
-    <main className="grid place-items-center h-full text-2xl text-white">
-      <div className="w-8/12 bg-[#5a189a] p-10 flex flex-col gap-20">
-        <ol className="grid lg:grid-cols-2 gap-20">
+    <main className="min-h-screen bg-gradient-to-br from-[#240046] to-[#5a189a] flex items-center justify-center text-white">
+      <div className="w-full max-w-3xl bg-[#5a189a]/90 rounded-3xl shadow-2xl p-10 flex flex-col gap-16 border-4 border-[#9d4edd]">
+        <ol className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <Player
             initialName={PLAYERS.X}
             symbol="X"
@@ -131,16 +131,26 @@ function App() {
         {(winner || hasDraw) && (
           <GameOver winner={winner} onRestart={handleRematch} />
         )}
-        <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
-
-        <button
-          className="bg-[#3c096c] w-fit px-7 py-3 rounded-md hover:scale-120 transition place-self-center"
-          onClick={() => setGameType((prev) => !prev)}
-        >
-          {gameType ? 'infinito' : 'Clasico'}
-        </button>
+        <div className="flex flex-col items-center gap-8">
+          <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
+          <button
+            className={`px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all duration-200
+            ${
+              gameType
+                ? 'bg-[#f72585] hover:bg-[#b5179e]'
+                : 'bg-[#3c096c] hover:bg-[#7209b7]'
+            }
+            scale-100 hover:scale-105`}
+            onClick={() => {
+              setGameType((prev) => !prev);
+              setGameTurns([]); // Resetea la partida al cambiar de modo
+            }}
+          >
+            {gameType ? 'Modo Infinito' : 'Modo Clásico'}
+          </button>
+        </div>
+        {/* <Log turns={gameTurns} /> */}
       </div>
-      {/* <Log turns={gameTurns} /> */}
     </main>
   );
 }

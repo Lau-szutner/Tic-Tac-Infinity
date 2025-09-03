@@ -21,7 +21,9 @@ export default function Player({
     setPlayerName(e.target.value);
   }
 
-  let editablePlayerName = <span className="w-36">{playerName}</span>;
+  let editablePlayerName = (
+    <span className="w-36 truncate text-lg font-semibold">{playerName}</span>
+  );
 
   if (isEditing) {
     editablePlayerName = (
@@ -30,26 +32,38 @@ export default function Player({
         required
         value={playerName}
         onChange={handleChange}
-        className="w-full bg-[#9d4edd] text-center rounded-md h-fit"
+        className="w-36 px-2 py-1 bg-[#9d4edd] text-white text-center rounded-md outline-none border-2 border-[#e0aaff] focus:border-[#c77dff] transition-all duration-200"
       />
     );
   }
 
   return (
     <li
-      className={`w-full py-6 rounded-md flex justify-around   transition-all duration-300 ${
-        isActive ? 'border-2 border-[#e0aaff]' : undefined
-      }`}
+      className={`w-full py-5 px-4 rounded-xl flex items-center justify-between gap-4 shadow-lg transition-all duration-300
+        ${
+          isActive
+            ? 'border-4 border-[#e0aaff] bg-[#3c096c]/60'
+            : 'border-2 border-[#9d4edd] bg-[#5a189a]/60'
+        }
+      `}
     >
-      <span className="font-bold w-28 flex text-center">
+      <span className="flex-1 flex items-center justify-center">
         {editablePlayerName}
       </span>
-      <span className="font-bold">{symbol}</span>
+      <span className="text-2xl font-extrabold  w-10 text-center drop-shadow">
+        {symbol}
+      </span>
       <button
-        className="font-light pointer-cursor  w-16"
+        className={`ml-2 px-4 py-1 rounded-md font-bold text-sm transition-all duration-200
+          ${
+            isEditing
+              ? 'bg-[#f72585] text-white hover:bg-[#b5179e]'
+              : 'bg-[#e0aaff] text-[#3c096c] hover:bg-[#c77dff]'
+          }
+          shadow-md`}
         onClick={handleEditClick}
       >
-        {isEditing ? 'Save' : 'Edit'}
+        {isEditing ? 'Guardar' : 'Editar'}
       </button>
     </li>
   );
