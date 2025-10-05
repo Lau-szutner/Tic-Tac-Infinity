@@ -4,6 +4,6 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Tic-tac-tou-inifinite/', // 👈 Agrega esta línea
+  base: '/Tic-tac-infinity/', 
   plugins: [react(), tailwindcss()],
 });

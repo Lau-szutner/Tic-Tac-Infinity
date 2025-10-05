@@ -143,13 +143,12 @@ function App() {
             scale-100 hover:scale-105`}
             onClick={() => {
               setGameType((prev) => !prev);
-              setGameTurns([]); // Resetea la partida al cambiar de modo
+              setGameTurns([]);
             }}
           >
-            {gameType ? 'Modo Infinito' : 'Modo Clásico'}
+            {gameType ? 'Infinity Mode' : 'Classic Mode'}
           </button>
         </div>
-        {/* <Log turns={gameTurns} /> */}
       </div>
     </main>
   );
